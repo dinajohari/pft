@@ -76,10 +76,7 @@
   <footer>
     <p>&copy; 2024 Irdina Johari. All Rights Reserved.</p>
   </footer>
-    <div id="stop" class="scrollTop">
-    <span><a href="">Top</a></span>
-  </div>
-
+    <button id="scrollToTop" title="Go to top">⬆️</button>
 </div>
 </div>
 
@@ -118,43 +115,26 @@
     { opacity: 1, y: 0, stagger: 0.2, duration: 1, ease: 'power2.out' }
   );
 
-    ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1.5,
-      effects: true
-    });
+    // Select the button
+const scrollToTopBtn = document.getElementById('scrollToTop');
 
-    $(document).ready(function() {
-  /******************************
-      BOTTOM SCROLL TOP BUTTON
-   ******************************/
+// Show or hide the button based on scroll position
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    scrollToTopBtn.style.display = 'block';
+  } else {
+    scrollToTopBtn.style.display = 'none';
+  }
+});
 
-  // declare variable
-  var scrollTop = $(".scrollTop");
+// Smooth scroll to the top when the button is clicked
+scrollToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Smooth scrolling
+  });
+});
 
-  $(window).scroll(function() {
-    // declare variable
-    var topPos = $(this).scrollTop();
-
-    // if user scrolls down - show scroll to top button
-    if (topPos > 100) {
-      $(scrollTop).css("opacity", "1");
-
-    } else {
-      $(scrollTop).css("opacity", "0");
-    }
-
-  }); // scroll END
-
-  //Click event to scroll to top
-  $(scrollTop).click(function() {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 800);
-    return false;
-
-  }); // click() scroll top EMD
 </script>
 
 </body>
