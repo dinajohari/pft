@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header Section */
+    header {
+      background-color: #d6eaf8;
+      color: #424949;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: #aed6f1;
+      overflow: hidden;
+    }
+
+    nav a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #424949;
+    }
+
+    /* About Section */
+    #about {
+      padding: 50px;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    h2 {
+      color: #aed6f1;
+      text-align: center;
+    }
+
+    #about p {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    /* Projects Section */
+    #projects {
+      padding: 50px;
+      background-color: #f9f9f9;
+    }
+
+    .project {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .flip-card {
+      background-color: #fff;
+      width: 250px;
+      height: 350px;
+      perspective: 1000px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      border-radius: 8px;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+
+    .flip-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .flip-card-back {
+      background-color: #f4f4f4;
+      color: #333;
+      transform: rotateY(180deg);
+      text-align: center;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .flip-card-back h3 {
+      margin-bottom: 10px;
+    }
+
+    /* Modal Styles */
+    #modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 600px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    #modal h3 {
+      margin-top: 0;
+    }
+
+    #modal button {
+      background-color: #aed6f1;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #modal button:hover {
+      background-color: #5dade2;
+    }
+
+    /* Modal Overlay */
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Your Name</h1>
+    <p>Web Developer | Designer | Programmer</p>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I'm a passionate web developer with a love for creating beautiful and functional websites. I specialize in front-end development using HTML, CSS, JavaScript, and React, and I enjoy learning new technologies to stay ahead in the field.</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="project">
+      <div class="flip-card" data-title="Project 1" data-description="A data science project leveraging Python for restaurant reviews.">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://via.placeholder.com/250x350" alt="Project 1">
+          </div>
+          <div class="flip-card-back">
+            <h3>Project 1</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" data-title="Project 2" data-description="This is a placeholder for a new project to be added soon.">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://via.placeholder.com/250x350" alt="Project 2">
+          </div>
+          <div class="flip-card-back">
+            <h3>Project 2</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="overlay"></div>
+  <div id="modal">
+    <h3 id="modal-title"></h3>
+    <p id="modal-description"></p>
+    <button onclick="closeModal()">Close</button>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Irdina Johari. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const flipCards = document.querySelectorAll('.flip-card');
+    const modal = document.getElementById('modal');
+    const overlay = document.getElementById('overlay');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+
+    flipCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const title = card.getAttribute('data-title');
+        const description = card.getAttribute('data-description');
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+
+        modal.style.display = 'block';
+        overlay.style.display = 'block';
+      });
+    });
+
+    function closeModal() {
+      modal.style.display = 'none';
+      overlay.style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
