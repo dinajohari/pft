@@ -79,30 +79,31 @@
   </footer>
 
   <script>
-    const flipCards = document.querySelectorAll('.flip-card');
-    const modal = document.getElementById('modal');
-    const overlay = document.getElementById('overlay');
-    const modalTitle = document.getElementById('modal-title');
-    const modalDescription = document.getElementById('modal-description');
+  const flipCards = document.querySelectorAll('.flip-card');
+  const modal = document.getElementById('modal');
+  const overlay = document.getElementById('overlay');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDescription = document.getElementById('modal-description');
 
-    flipCards.forEach(card => {
-      card.addEventListener('click', () => {
-        const title = card.getAttribute('data-title');
-        const description = card.getAttribute('data-description');
-        modalTitle.textContent = title;
-        modalDescription.textContent = description;
+  flipCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const title = card.getAttribute('data-title');
+      const description = card.getAttribute('data-description');
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
 
-        modal.style.display = 'block';
-        overlay.style.display = 'block';
-      });
+      modal.style.display = 'block';
+      overlay.style.display = 'block';
     });
+  });
 
-    function closeModal() {
-      modal.style.display = 'none';
-      overlay.style.display = 'none';
-    }
+  function closeModal() {
+    modal.style.display = 'none';
+    overlay.style.display = 'none';
+  }
 
-    const quoteElement = document.getElementById('quote');
+  // GSAP Animation for Quote
+  const quoteElement = document.getElementById('quote');
   const text = quoteElement.textContent;
   quoteElement.innerHTML = text.split(' ').map(word => `<span>${word}</span>`).join(' ');
 
@@ -111,8 +112,7 @@
     { opacity: 0, y: 50 },
     { opacity: 1, y: 0, stagger: 0.2, duration: 1, ease: 'power2.out' }
   );
-    }
-  </script>
+</script>
 
 </body>
 </html>
