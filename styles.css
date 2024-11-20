@@ -40,8 +40,8 @@
       color: #424949;
     }
 
-    /* About Section */
-    #about {
+    /* About & contact Section */
+    #about, #contact {
       padding: 50px;
       text-align: center;
       background-color: #fff;
