@@ -179,41 +179,6 @@ nav {
   z-index: 999;
 }
 
-// Animated Section
-#animated {
-  padding: 50px;
-  text-align: center;
-  background-color: #f9f9f9;
-
-  h2 {
-    color: $secondary-bg;
-    margin-bottom: 20px;
-  }
-
-  .animated-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-
-    .card {
-      width: 200px;
-      height: 150px;
-      background-color: $primary-bg;
-      color: $text-color;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 18px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transform: translateY(50px); // Default position before animation
-      opacity: 0; // Default opacity before animation
-    }
-  }
-}
-
-
 // Footer
 footer {
   background-color: $text-color;
