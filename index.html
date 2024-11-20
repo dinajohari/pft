@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dina's</title>
-  <link rel="stylesheet" href="styles.scss" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -69,23 +69,11 @@
     <p></p>Email: dinajohari21@gmail.com</p>
   </section>
 
-    <!-- Animated Section -->
-  <section id="animated">
-    <h2>Animated Section</h2>
-    <div class="animated-cards">
-      <div class="card">Card 1</div>
-      <div class="card">Card 2</div>
-      <div class="card">Card 3</div>
-    </div>
-  </section>
-
   <!-- Footer Section -->
   <footer>
     <p>&copy; 2024 Irdina Johari. All Rights Reserved.</p>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
   <script>
     const flipCards = document.querySelectorAll('.flip-card');
     const modal = document.getElementById('modal');
@@ -109,21 +97,7 @@
       modal.style.display = 'none';
       overlay.style.display = 'none';
     }
-
-    // GSAP Animations
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.from(".card", {
-      scrollTrigger: {
-        trigger: "#animated",
-        start: "top 80%", // Start animation when #animated section is 80% into the viewport
-      },
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      stagger: 0.2, // Animate each card with a slight delay
-    });
   </script>
-</body>
 
+</body>
 </html>
