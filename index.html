@@ -18,11 +18,11 @@
   </header>
 
   <!-- Navigation Bar -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<nav id="navbar">
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
 
   <!-- About Section -->
   <section id="about">
@@ -83,6 +83,40 @@
    <button id="scrollToTop" title="Go to top">Top</button>
 
   <script>
+
+    const navbar = document.getElementById('navbar');
+let lastScrollTop = 0;
+
+// Show navbar when scrolling up
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrollTop < lastScrollTop) {
+    // Scrolling up
+    navbar.style.transform = 'translateY(0)';
+  } else {
+    // Scrolling down
+    navbar.style.transform = 'translateY(-100%)';
+  }
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For mobile or negative scrolling
+});
+
+// Smooth scrolling for nav links
+document.querySelectorAll('#navbar a').forEach(anchor => {
+  anchor.addEventListener('click', event => {
+    event.preventDefault();
+    const targetId = anchor.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  });
+});
+
   const flipCards = document.querySelectorAll('.flip-card');
   const modal = document.getElementById('modal');
   const overlay = document.getElementById('overlay');
